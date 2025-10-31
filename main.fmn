@@ -1,0 +1,143 @@
+create#/validator|0/#
+create#/checkNum|0/#
+
+color#/green/#
+spew#/Welcome to tic tac toe!/#
+color#/reset/#
+go#/initBoard/#
+mark#/initDone/#
+go#/spewBoard/#
+mark#/afterSpew/#
+ask#/Which side do you want to be? (X/O)|side/#
+create#/checkNum|0/#
+ifgo#/side|is|'X'|playerValidate|_/#
+mark#/afterCheck1/#
+create#/checkNum|1/#
+ifgo#/side|is|'O'|playerValidate|_/#
+mark#/afterCheck2/#
+ifgo#/validator|is|1|continue|errorSide/#
+bye
+
+mark#/continue/#
+color#/green/#
+spew#/'Picked side: '/#
+color#/reset/#
+mark#/loop/#
+go#/spewBoard2/#
+mark#/afterSpew2/#
+color#/blue/#
+spew#/side/#
+mark#/markingChoice/#
+color#/green/#
+ask#/Where do you want to put you mark?|markChoice/#
+color#/reset/#
+go#/putBoard/#
+bye
+
+mark#/initBoard/#
+create#/x1| /#
+create#/x2| /#
+create#/x3| /#
+create#/y1| /#
+create#/y2| /#
+create#/y3| /#
+create#/z1| /#
+create#/z2| /#
+create#/z3| /#
+go#/initDone/#
+
+mark#/spewBoard/#
+spew#/x1|'/'|x2|'/'|x3/#
+spew#/'------'/#
+spew#/y1|'/'|y2|'/'|y3/#
+spew#/'------'/#
+spew#/z1|'/'|z2|'/'|z3/#
+go#/afterSpew/#
+
+mark#/spewBoard2/#
+spew#/x1|'/'|x2|'/'|x3/#
+spew#/'----------'/#
+spew#/y1|'/'|y2|'/'|y3/#
+spew#/'----------'/#
+spew#/z1|'/'|z2|'/'|z3/#
+go#/afterSpew2/#
+
+mark#/playerValidate/#
+create#/validator|0/#
+add#/validator|validator|1/#
+ifgo#/checkNum|is|0|afterCheck1|afterCheck2/#
+
+mark#/errorSide/#
+color#/red/#
+spew#/'Error picking side!'/#
+spew#/side/#
+color#/reset/#
+go#/afterSpew/#
+
+mark#/errorPut/#
+color#/red/#
+spew#/'Error putting mark!'/#
+spew#/markChoice/#
+color#/reset/#
+go#/markingChoice/#
+
+mark#/putBoard/#
+ifgo#/markChoice|is|'x1'|putx1|_/#
+ifgo#/markChoice|is|'x2'|putx2|_/#
+ifgo#/markChoice|is|'x3'|putx3|_/#
+ifgo#/markChoice|is|'y1'|puty1|_/#
+ifgo#/markChoice|is|'y2'|puty2|_/#
+ifgo#/markChoice|is|'y3'|puty3|_/#
+ifgo#/markChoice|is|'z1'|putz1|_/#
+ifgo#/markChoice|is|'z2'|putz2|_/#
+ifgo#/markChoice|is|'z3'|putz3|_/#
+go#/errorPut/#
+mark#/putCon/#
+go#/loop/#
+bye
+
+
+mark#/putx1/#
+ifgo#/x1|isnt|''|errorPut|_/#
+create#/x1|side/#
+go#/putCon/#
+
+mark#/putx2/#
+ifgo#/x2|isnt|''|errorPut|_/#
+create#/x2|side/#
+go#/putCon/#
+
+mark#/putx3/#
+ifgo#/x3|isnt|''|errorPut|_/#
+create#/x3|side/#
+go#/putCon/#
+
+mark#/puty1/#
+ifgo#/y1|isnt|''|errorPut|_/#
+create#/y1|side/#
+go#/putCon/#
+
+mark#/puty2/#
+ifgo#/y2|isnt|''|errorPut|_/#
+create#/y2|side/#
+go#/putCon/#
+
+mark#/puty3/#
+ifgo#/y3|isnt|''|errorPut|_/#
+create#/y3|side/#
+go#/putCon/#
+
+mark#/putz1/#
+ifgo#/z1|isnt|''|errorPut|_/#
+create#/z1|side/#
+go#/putCon/#
+
+mark#/putz2/#
+ifgo#/z2|isnt|''|errorPut|_/#
+create#/z2|side/#
+go#/putCon/#
+
+mark#/putz3/#
+ifgo#/z3|isnt|''|errorPut|_/#
+create#/z3|side/#
+go#/putCon/#
